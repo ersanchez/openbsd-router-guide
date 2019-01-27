@@ -323,7 +323,7 @@ Luckily, we already configured `em0` during the install process. Now we need to 
 
 NOTE: DNS (unbound) needs to be configured before anything will work
 
-* Create the file `/etc/sysclt.conf` if it does not already exist and add the following: 
+* Create the file `/etc/sysctl.conf` if it does not already exist and add the following: 
 
 	**`net.inet.ip.forwarding=1`**
 
