@@ -37,9 +37,9 @@ Overall, you should be ok to embark on this journey if you already have the foll
 * welcome a challenge
 * harbor no fear of the command line
 * have a willingness to learn
-* have the ability to edit files from the command line using [`vi`](https://en.wikipedia.org/wiki/Vi)
-* can install an internal hard drive
-* can install RAM
+* edit files from the command line using [`vi`](https://en.wikipedia.org/wiki/Vi)
+* install an internal hard drive
+* install RAM
 * use `scp` to securely copy files from one computer to another
 * create SSH keys
 * append SSH public keys to an `authorized_keys` file
@@ -70,13 +70,12 @@ Before installing, do the following:
 		* host to OpenBSD internal interface
 		* host to OpenBSD external interface
 		* host to a random interweb site (cnn.com)
-* figure out the hostname of the OpenBSD machine
 * figure out what the subnet(s) will be
-* physically connect the external interface to the lan - you'll use this to download anything not on the CD-ROM
+* physically connect the external interface to the lan
 
 ## Download the OpenBSD Operating System
 
-You can download OpenBSD directly from `openbsd.org`.
+On your non-router computer you can download OpenBSD directly from [OpenBSD.org](https://www.openbsd.org).
 
 Click on the Download link on the main page.
 
@@ -104,7 +103,7 @@ Note: Simply copying it from your Downloads folder is not enough. You need to do
 * 'Burn' the installer file onto the USB drive
 
 
-### GNU/Linux
+#### GNU/Linux
 
 **WARNING**: Doing a bit-for-bit copy to the USB drive will delete the contents of the drive.
 
@@ -112,7 +111,7 @@ In the following `dd` command, `if` represents the input file and `of` represent
 
 	$ sudo dd if=/enter/path/to/install*.fs of=/dev/sdX bs=1M
 
-### Windows
+#### Windows
 
 Search Google for instructions on how to install the installer file on Windows.
 
