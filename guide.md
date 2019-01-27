@@ -257,6 +257,8 @@ The `doas` program is a program that will let you execute commands as another us
 
 You'll be prompted to create a default adduser file - click enter to accept the defaults.
 
+Eventually you'll get to the part where you can actually add a user:
+
 	Ok, let's go.
 	Don't worry about mistakes. There will be a chance later to correct any input.
 	Enter username:
@@ -271,7 +273,7 @@ You'll be prompted to create a default adduser file - click enter to accept the 
 
 Since your router will run headless, you'll need a way to connect to it. We will use OpenSSH (SSH) to make an encrypted connection from your non-router computer to your router. This guide assumes that you'll be connecting to your router from within your home LAN. You _can_configure your router so that you can connect to it from the scary internet, but that's beyond the scope of this guide.
 
-Copy your **public** ssh keys that you will be using to access this router from your daily-driver laptop or desktop computer to your new user account on this router. Append your client public (NOT YOUR PRIVATE KEY!!!) SSH keys to this file on the router `$HOME/.ssh/authorized_keys`
+Copy your **public** ssh keys that you will be using to access this router from your daily-driver laptop or desktop computer to your new user account on this router. Append your client public (has pub in the filename) SSH keys to this file on the router `$HOME/.ssh/authorized_keys`
 
 ##### Configure `sshd_config`
 
