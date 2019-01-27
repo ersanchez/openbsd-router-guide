@@ -10,6 +10,8 @@ Why would you want to do this?
 
 Commercial routers are dangerous because they are full of security flaws. Using OpenBSD on a do-it-yourself router is much more secure.
 
+I decided to use a barebones computer with two network interface cards as my router. I chose the [OEM Production 2550L2D-MxPC Intel NM10 Booksize Barebones System](https://www.newegg.com/Product/Product.aspx?Item=N82E16856205007) from Newegg. I put this computer into service as a router in August 2013 and it has been chugging along ever since.
+
 ## Outline
 
 1. Prerequisites
@@ -139,7 +141,7 @@ Here's a listing of what you need to do at each step along the way of a normal i
 
 `Choose your keyboard layout` **`[default]`**
 
-`System hostname?`  **`h21router`**
+`System hostname?`  **`routername`**
 
 `Available network interfaces are: em0 em1.`  **`choose the one that you plugged in (see Prerequisites section)`**
 
