@@ -339,7 +339,7 @@ This section sets up the DHCP server that will assign ip addresses to your local
 
 1. Configure DHCP to run at startup.  
 
-* Add the following to `rc.conf.local`:
+* Add the following to `/etc/rc.conf.local` (create this file if it does not already exist):
 
 	**`dhcpd_flags="em1"`**
 
