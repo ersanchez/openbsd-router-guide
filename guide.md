@@ -318,14 +318,15 @@ Luckily, we already configured `em0` during the install process. Now we need to 
 
 NOTE: DNS (unbound) needs to be configured before anything will work
 
-* Create the file `/etc/sysclt.conf` if it does not already exist
-* Add the following: **`net.inet.ip.forwarding=1`**
+* Create the file `/etc/sysclt.conf` if it does not already exist and add the following: 
 
-4. Kick start the networking again.
+	**`net.inet.ip.forwarding=1`**
+
+4. Kickstart the networking again.
 
 	`# /bin/sh /etc/netstart`
 
-5. Test pinging from a client to the OpenBSD internal and external interfaces
+5. Test pinging from a local LAN client to the OpenBSD internal and external interfaces
 
 ### Configuration - DHCP Server ###
 
@@ -339,16 +340,17 @@ This section sets up the DHCP server that will assign ip addresses to your local
 
 2. Configure DHCP server details:
 
-* Create the file `/etc/dhcpd.conf` if it doesn't exist
+* Create the file `/etc/dhcpd.conf` if it doesn't already exist
 * Add the following to that file:
 
 	`option domain-name-servers 208.67.222.222, 208.67.220.220; subnet 192.168.X.0 netmask 255.255.255.0 { option routers 192.168.X.1; range 192.168.X.50 192.168.X.75;}`**
 
 Notes:
 
-* I limited the range of the DHCP addresses that will be issued starting at 192.168.X.50 up to 192.168.X.75 ...only 25 available addresses. Alternatively you can start at 192.168.X.2 (192.168.X.1 is this server you're setting up) and end at 192.168.X.254.
-* The gateway which is the path that computers on the home LAN will get to the internet is 192.168.X.1 - you can change this if you want
-* I'm using OpenDNS DNS server addresses - you can change this if you want
+* `option domain-name-servers` are the ip addresses of the DNS servers this computer will use - these are OpenDNS - you can change this
+* `option routers` is the ip address of the gateway that the clients will use to get out to the Internet
+* `range` is the low and high boundaries for dynamically-assigned ip addresses - in this case I set the low to 50 and the high to 75 - you can change these
+
 
 1. Reboot and test DHCP on an a client that is attached to the OpenBSD internal interface.  You should be able to ping both interfaces on the OpenBSD router.  However, you will not be able to get to the outside world just yet.
 
