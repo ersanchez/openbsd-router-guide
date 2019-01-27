@@ -178,7 +178,7 @@ Although you really _do_ want to add another user, you don't want to do it right
 
 We'll set up SSH later in this guide.
 
-**WARNING**: This next step could erase data. 
+**WARNING**: This next step will erase any data on the hard drive that you choose. 
 
 This next step assumes that you are installing OpenBSD on your router hardware and that the hard disk in your router is blank or anything you will be overwriting has already been backed up.
 
@@ -190,15 +190,19 @@ This question is asking you to specify which disk you'd like to install OpenBSD.
 
 `Use (A)uto layout`   **`[a]`**
 
-`Location of sets? `  **`[cd]`**
+The installer whill format the hard drive - this only takes a few seconds.
+
+`Location of sets? `  **`[cd0]`** Note: 'cd0' is not the default.
 
 `Set name(s)` **`-g*`** to prevent downloading unneeded games
-
-Wait for everything to install.
 
 `What timezone are you in` **`[enter your country code]`** type ? if you don't know your country code
 
 `What sub-timezone are you in` **`[enter your sub-timezone name]`** type ? if you don't know
+
+`Directory does not contain SHA256.sig. Continue without verification?` **`[yes]`** Note: 'yes' is not the default.
+
+Wait for everything to install. This should only take a moment. You will be surprised at how fast installing the OpenBSD operating system goes.
 
 `Time appears wrong. Set time to [verify this timestamp is accurate]` **`[yes]`**
 
