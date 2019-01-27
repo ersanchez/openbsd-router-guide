@@ -220,6 +220,7 @@ Overview of the system configuration:
 
 * Configure `doas`
 * Add a non-root user
+* Apply patches
 * Configure OpenSSH
 * Set up the network interfaces
 * Configure the DHCP server for the internal network
@@ -273,6 +274,13 @@ Eventually you'll get to the part where you can actually add a user:
 	Login group: [defaults to be same as username]
 	Invide user into any other groups: **wheel**
 
+#### Patch the OpenBSD Router Installation
+
+The installer only contains OpenBSD as it was on release day. There have been security patches since then so let's apply the patches now.
+
+	`$ doas syspatch`
+	
+This will apply the patches that are included on the Patches link on this [page]((https://www.openbsd.org/)).
 
 #### SSH
 
@@ -416,6 +424,8 @@ Check to see if the newly-specified DNS servers are bing used:
 	$ cat /etc/resolv.conf
 
 You should see the ip addresses of the new DNS servers you specified in `/etc/dhclient.conf` listed in the output.
+
+
 
 ## Configure Wireless Network ##
 
