@@ -273,7 +273,7 @@ Eventually you'll get to the part where you can actually add a user:
 
 Since your router will run headless, you'll need a way to connect to it. We will use OpenSSH (SSH) to make an encrypted connection from your non-router computer to your router. This guide assumes that you'll be connecting to your router from within your home LAN. You _can_configure your router so that you can connect to it from the scary internet, but that's beyond the scope of this guide.
 
-Copy your **public** ssh keys that you will be using to access this router from your daily-driver laptop or desktop computer to your new user account on this router. Append your client public (has pub in the filename) SSH keys to this file on the router `$HOME/.ssh/authorized_keys`
+Copy your **public** ssh keys that you will be using to access this router from your daily-driver laptop or desktop computer to your new user account on this router. Append your client public (has 'pub' in the filename) SSH keys to this file on the router `$HOME/.ssh/authorized_keys`
 
 ##### Configure `sshd_config`
 
@@ -303,27 +303,27 @@ In this example,
 * `em0` is external-facing and
 * `em1` is internal-facing
 
-Luckily, we already configured `bge0` during the install process. Now we need to configure the internal network interface `em1`.
+Luckily, we already configured `em0` during the install process. Now we need to configure the internal network interface `em1`.
 
 1. Configure the OpenBSD _internal_ interface (`em1`)
 
-> * Add the following to `/etc/hostname.em1`:
-> * **`inet (ip address goes here) 255.255.255.0`**
+* Add the following to `/etc/hostname.em1`:
+* **`inet (ip address goes here) 255.255.255.0`**
 
 2. Kick start the networking service: 
 
-> * **`# /bin/sh /etc/netstart`**
+* **`# /bin/sh /etc/netstart`**
 
-3. Enable forwarding of LAN traffic (make it a router!!!):
+3. Enable forwarding of LAN traffic (this makes it a router):
 
 NOTE: DNS (unbound) needs to be configured before anything will work
 
-> * Create the file `/etc/sysclt.conf` if it does not already exist
-> * Add the following: **`net.inet.ip.forwarding=1`**
+* Create the file `/etc/sysclt.conf` if it does not already exist
+* Add the following: **`net.inet.ip.forwarding=1`**
 
 4. Kick start the networking again.
 
-	# /bin/sh /etc/netstart
+	`# /bin/sh /etc/netstart`
 
 5. Test pinging from a client to the OpenBSD internal and external interfaces
 
@@ -333,14 +333,14 @@ This section sets up the DHCP server that will assign ip addresses to your local
 
 1. Configure DHCP to run at startup.  
 
-> * Add the following to `rc.conf.local`:
+* Add the following to `rc.conf.local`:
 
-> * **`dhcpd_flags="em1"`**
+	**`dhcpd_flags="em1"`**
 
 2. Configure DHCP server details:
 
->* Create the file `/etc/dhcpd.conf` if it doesn't exist
->* Add the following to that file:
+* Create the file `/etc/dhcpd.conf` if it doesn't exist
+* Add the following to that file:
 
 	`option domain-name-servers 208.67.222.222, 208.67.220.220; subnet 192.168.X.0 netmask 255.255.255.0 { option routers 192.168.X.1; range 192.168.X.50 192.168.X.75;}`**
 
