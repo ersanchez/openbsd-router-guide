@@ -116,7 +116,7 @@ Search Google for instructions on how to install the installer file on Windows.
 
 There is a good [guide](https://hammondmason.wordpress.com/2015/02/09/getting-an-openbsd-image-onto-a-usb-stick-using-windows/) on Hammond Mason's blog.
 
-## Install OpenBSD ##
+## Install OpenBSD on the Router
 
 Now that you have the installer file burned onto your USB drive, you are ready to install OpenBSD on your router
 
@@ -247,9 +247,7 @@ The `doas` program is a program that will let you execute commands as another us
 
 * add the following to the `doas.conf` file to allow any user in the `wheel` group to execute commands as any user while keeping the environment variables `PS1` (the user prompt and `SSH_AUTH_SOCK` and unsetting the `ENV` environment variable:
 	
-delete:	`permit keepenv { PKG_PATH ENV PS1 SSH_AUTH_SOCK } :wheel`
 	`permit setenv { -ENV PS1=$DOAS_PS1 SSH_AUTH_SOCK} :wheel`
-
 
 #### Add users with `adduser`
 
