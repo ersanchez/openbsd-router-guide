@@ -13,18 +13,19 @@ Commercial routers are dangerous because they are full of security flaws. Using 
 ## Outline ##
 
 1. Prerequisites
-2. Download software
-3. Configure router
-4. Install operating system
-5. Configure the router
+1. Download OpenBSD
+1. Install OpenBSD on the Router
+1. Configure router
+1. Install operating system
+1. Configure the router
 
 To do
 
-6. Configure 802.11 networking
-7. Configure VPN
-8. Perform Server Security Tweaks
-9. Perform Firewall Security Tweaks
-10. Last steps
+1. Configure wireless networking
+1. Configure VPN
+1. Perform Server Security Tweaks
+1. Perform Firewall Security Tweaks
+1. Last steps
 
 ## Prerequisites
 
@@ -208,7 +209,7 @@ There is no need to be connected at this point. Reduce the threat cross-section 
 
 Reboot your router and remove the USB installer drive.
 
-## Configuration Overview ##
+## Configure the Router
 
 In this section some basic configuration of the computer takes place.  Next some networking tasks are accomplished.  Finally, the router is brought up to speed and tested.
 
@@ -371,7 +372,7 @@ You might also need to kickstart networking:
 
 Next reboot and try accessing any website on a client connected to the OpenBSD internal interface.
 
-## Configure DNS Server
+### Configure DNS Server
 
 This will provide DNS to the apartment LAN hosts.
 
