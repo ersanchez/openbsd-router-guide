@@ -10,7 +10,7 @@ Why would you want to do this?
 
 Commercial routers are dangerous because they are full of security flaws. Using OpenBSD on a do-it-yourself router is much more secure.
 
-## Outline ##
+## Outline
 
 1. Prerequisites
 1. Download OpenBSD
@@ -18,9 +18,6 @@ Commercial routers are dangerous because they are full of security flaws. Using 
 1. Configure router
 1. Install operating system
 1. Configure the router
-
-To do
-
 1. Configure wireless networking
 1. Configure VPN
 1. Perform Server Security Tweaks
@@ -64,7 +61,7 @@ Before installing, do the following:
 * draw a network map - trust me, this will help you visualize everything
 	* show lines of demarcation
 	* label interfaces by OpenBSD designations
-	* label the subnets (192.168.1.0, 192.168.2.0)
+	* label the subnets (ex: 192.168.1.0, 192.168.X.0)
 	* use colored pencils to mark the logical paths to test
 		* cable modem <--> OpenBSD external interface
 		* OpenBSD internal interface to a host
@@ -111,7 +108,7 @@ Note: Simply copying it from your Downloads folder is not enough. You need to do
 
 In the following `dd` command, `if` represents the input file and `of` represents the device node of the USB drive.
 
-	$ sudo dd if=/install*.fs of=/dev/sdX bs=1M
+	$ sudo dd if=/enter/path/to/install*.fs of=/dev/sdX bs=1M
 
 ### Windows
 
@@ -138,18 +135,17 @@ You have your USB key with the OpenBSD installer and you have your router ready 
 
 Here's a listing of what you need to do at each step along the way of a normal installation.
 
-`Welcome to the OpenBSD installation program.`    
-**`(I)nstall`**    
+`Welcome to the OpenBSD installation program.` **`(I)nstall`**
 
-`Choose your keyboard layout` **`[default]`**    
+`Choose your keyboard layout` **`[default]`**
 
-`System hostname?`  **`h21router`**    
+`System hostname?`  **`h21router`**
 
 `Available network interfaces are: em0 em1.`  **`choose the one that you plugged in (see Prerequisites section)`**
 
 `IPv4 address for em0?`  **`[dhcp]`**  
 
-**`dhcp`** is a good choice here since eventually, this port will be connected straight into the cable modem. Using this setting, the ip address, name servers, and search domain for this external-facing interface will be set by the DHCP server (in this case: your ISP). You'll set up an inward-facing DHCP server that will provide dynamic ip addresses to the computers inside your network later in this guide. 
+Note: **`dhcp`** is a good choice here since eventually, this port will be connected straight into the cable modem. Using this setting, the ip address, name servers, and search domain for this external-facing interface will be set by the DHCP server (in this case: your ISP). You'll set up an inward-facing DHCP server that will provide dynamic ip addresses to the computers inside your network later in this guide. 
 
 Write down these interface names - you'll need them later in the setup
 
@@ -161,11 +157,13 @@ Note: So far we've only configured the ethernet port connecting your router to y
 
 `DNS domain name` **`[enter your domain name (example.com)]`**
 
-    **add some note about possibilities here**
+Don't worry if you don't have a domain name or you don't want to assign a domain name - you can leave this blank
 
 `Password for root` --  **`enter it!`**
 
 `Start sshd by default?` **`[yes]`**
+
+Enabling the SSH daemon (`sshd`) to start by default will enable to you connect securely to this computer after you finish the install.
 
 `Do you expect to run the X Window System `  **`[yes]`** ...not really, but what does it really hurt?
 
