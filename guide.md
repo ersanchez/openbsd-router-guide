@@ -278,7 +278,7 @@ Eventually you'll get to the part where you can actually add a user:
 
 The installer only contains OpenBSD as it was on release day. There have been security patches since then so let's apply the patches now.
 
-	`$ doas syspatch`
+	$ doas syspatch
 	
 This will apply the patches that are included on the Patches link on this [page]((https://www.openbsd.org/)).
 
