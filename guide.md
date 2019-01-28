@@ -376,7 +376,7 @@ Notes:
 
 ### Configuration - NAT (firewall) ###
 
-** NEED TO UPDATE **
+**NEED TO ADD `pf.conf` TO THIS SECTION**
 
 Test the ruleset by issuing the following (will give you the line number of any syntax errors):
 
@@ -405,6 +405,10 @@ Once the `/var/unbound/etc/unbound.conf` file is written, check the file to make
 	$ unbound-checkconf
 
 Fix any errors that `unbound-checkconf` identifies.
+
+Set `unbound` to start at boot by adding the following line to the `/etc/rc.conf.local` file:
+
+	unbound_flags="YES"
 
 Restart networking:
 
