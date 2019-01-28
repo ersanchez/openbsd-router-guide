@@ -417,6 +417,8 @@ As configured, the external-facing interface, `hostname.em0` is using the DNS se
 Add this to the `/etc/dhclient.conf` file:
 
 	interface "em0" {
+		send host-name "hostnameyoupicked";
+		supersede domain-search "google.com.";
 		supersede domain-name-servers 208.67.220.220,208.67.222.222;
 		}
 
