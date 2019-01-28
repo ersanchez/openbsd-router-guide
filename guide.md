@@ -356,7 +356,14 @@ This section sets up the DHCP server that will assign ip addresses to your local
 * Create the file `/etc/dhcpd.conf` if it doesn't already exist
 * Add the following to that file:
 
-	`option domain-name-servers 208.67.222.222, 208.67.220.220; subnet 192.168.X.0 netmask 255.255.255.0 { option routers 192.168.X.1; range 192.168.X.50 192.168.X.75;}`
+	option domain-name-servers 192.168.X.1; 
+	
+	subnet 192.168.X.0 netmask 255.255.255.0 
+	{ 
+	option domain-name-servers 192.168.X.1;
+	option routers 192.168.X.1; 
+	range 192.168.X.50 192.168.X.75;
+	}
 
 Notes:
 
