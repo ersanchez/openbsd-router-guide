@@ -321,11 +321,12 @@ Luckily, we already configured `em0` during the install process. Now we need to 
 1. Configure the OpenBSD _internal_ interface (`em1`)
 
 * Add the following to `/etc/hostname.em1`:
-* **`inet 192.168.1.1 255.255.255.0`**
+	
+	`inet 192.168.1.1 255.255.255.0`
 
 2. Kick start the networking service: 
 
-* **`# /bin/sh /etc/netstart`**
+	`# /bin/sh /etc/netstart`
 
 3. Enable forwarding of LAN traffic (this makes it a router):
 
@@ -333,7 +334,7 @@ NOTE: DNS (unbound) needs to be configured before anything will work
 
 * Create the file `/etc/sysctl.conf` if it does not already exist and add the following: 
 
-	**`net.inet.ip.forwarding=1`**
+	net.inet.ip.forwarding=1
 
 4. Kickstart the networking again.
 
@@ -349,7 +350,7 @@ This section sets up the DHCP server that will assign ip addresses to your local
 
 * Add the following to `/etc/rc.conf.local` (create this file if it does not already exist):
 
-	**`dhcpd_flags="em1"`**
+	`dhcpd_flags="em1"`
 
 2. Configure DHCP server details:
 
