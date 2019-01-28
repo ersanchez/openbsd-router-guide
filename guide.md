@@ -321,7 +321,7 @@ Luckily, we already configured `em0` during the install process. Now we need to 
 1. Configure the OpenBSD _internal_ interface (`em1`)
 
 * Add the following to `/etc/hostname.em1`:
-* **`inet (ip address goes here) 255.255.255.0`**
+* **`inet 192.168.1.1 255.255.255.0`**
 
 2. Kick start the networking service: 
 
@@ -356,18 +356,18 @@ This section sets up the DHCP server that will assign ip addresses to your local
 * Create the file `/etc/dhcpd.conf` if it doesn't already exist
 * Add the following to that file:
 
-	option domain-name-servers 192.168.X.1; 
+	option domain-name-servers 192.168.1.1; 
 	
-	subnet 192.168.X.0 netmask 255.255.255.0 
+	subnet 192.168.1.0 netmask 255.255.255.0 
 	{ 
-	option domain-name-servers 192.168.X.1;
-	option routers 192.168.X.1; 
-	range 192.168.X.50 192.168.X.75;
+	option domain-name-servers 192.168.1.1;
+	option routers 192.168.1.1; 
+	range 192.168.1.50 192.168.1.75;
 	}
 
 Notes:
 
-* `option domain-name-servers` are the ip addresses of the DNS servers this computer will use - these are OpenDNS - you can change this
+* `option domain-name-servers` is what the clients of this computer will use, so, in this case it will be the ip address of this computer, 192.168.1.1
 * `option routers` is the ip address of the gateway that the clients will use to get out to the Internet
 * `range` is the low and high boundaries for dynamically-assigned ip addresses - in this case I set the low to 50 and the high to 75 - you can change these
 
