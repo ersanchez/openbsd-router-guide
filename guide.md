@@ -408,7 +408,7 @@ Fix any errors that `unbound-checkconf` identifies.
 
 Set `unbound` to start at boot by adding the following line to the `/etc/rc.conf.local` file:
 
-	unbound_flags="YES"
+	unbound_flags=""
 
 Restart networking:
 
